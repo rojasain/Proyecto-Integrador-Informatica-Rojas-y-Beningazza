@@ -93,7 +93,7 @@ def registrar_evento(temperatura, tendencia):
      writer = csv.writer(archivo_csv)
      writer.writerow([fecha_str, hora_str, f"{temperatura:.2f}", tendencia])
 
-    # Escribimos en el archivo TXT para lectura
+    # Escribimos en el archivo TXT para lectura y parte B
     with open("registro.txt", "a") as archivo_txt:
         archivo_txt.write(f"Fecha: {fecha_str}; Hora: {hora_str}; Temperatura: {temperatura:.2f}; Tendencia: {tendencia}\n")
 
@@ -251,3 +251,4 @@ while True:
         time.sleep(0.01)
         continue
    
+
