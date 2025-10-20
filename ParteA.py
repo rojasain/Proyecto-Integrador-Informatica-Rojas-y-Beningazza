@@ -68,7 +68,7 @@ def calcular_promedio(lista):
     else: promedio = sum(lista[len(lista)-N : len(lista)]) / N  # Toma solo las últimas N lecturas y calcula el promedio
     return promedio                       # Devuelve el promedio
 
-# Analizar tendencia y decidir LEDs
+# Analizar tendencia 
 def analizar_tendencia(lectura, promedio):
     if promedio is None:                                        # Si no hay suficientes datos
         return "sin datos" 
@@ -82,8 +82,8 @@ def analizar_tendencia(lectura, promedio):
 
 # Registrar evento en archivo
 def registrar_evento(temperatura, tendencia):
-    # 5. CREAR O ABRIR EL ARCHIVO CSV (y mantener registro.txt para compatibilidad)
-    ahora = datetime.now()                                 # Obtiene fecha y hora actual
+    # 5. CREAR O ABRIR EL ARCHIVO CSV y TXT
+    ahora = datetime.now()                   # Obtiene fecha y hora actual
     fecha_str = ahora.strftime("%d/%m/%Y")   # Día/Mes/Año
     hora_str  = ahora.strftime("%H:%M:%S")   # Hora:Minuto:Segundo
 
@@ -137,7 +137,7 @@ def mostrar_por_consola(temp, promedio, tendencia):
     else: promedio_texto = f"{promedio:.2f}"
     print(f"Temp: {temp:.2f}°C | Promedio: {promedio_texto}°C | Tendencia: {tendencia}")
 
-# Ajustar ciclo y monitoreo segun duración del pulsador
+# Ajustar ciclo y monitoreo según duración del pulsador
 def medir_duracion_pulsacion():
 
     # Inicializamos variables
@@ -185,12 +185,13 @@ def esperar_ciclo(ciclo):
         time.sleep(intervalo)                     # Espera el intervalo
     return True, ciclo                 # Retorna que el monitoreo sigue activo y el ciclo actual
 
-# BUCLE PRINCIPAL
 
+# 6. Mostrar mensaje en consola: “Estación de monitoreo iniciada”. 
 ciclo = CICLO_DEFECTO
 print("Estación de monitoreo iniciada. Presiona el botón para configurar ciclo o finalizar.")
 monitoreo_activo = True
 
+# BUCLE PRINCIPAL
 while True:
    # 7. Leer el estado del pulsador
    pulsador = board.digital[BUTTON_PIN].read()  
@@ -250,5 +251,6 @@ while True:
         time.sleep(0.01)
         continue
    
+
 
 
