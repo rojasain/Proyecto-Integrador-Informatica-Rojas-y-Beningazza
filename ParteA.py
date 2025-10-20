@@ -5,7 +5,6 @@
 import pyfirmata               # Para comunicar Python con Arduino usando protocolo Firmata
 import time                    # Para medir tiempos y pausas
 from datetime import datetime  # Para registrar fecha y hora exacta de cada lectura
-import os                      # Para verificar si existe o no el archivo de registro
 import csv                     # Para escribir registros en formato CSV
 
 
@@ -251,4 +250,5 @@ while True:
         time.sleep(0.01)
         continue
    
+
 
