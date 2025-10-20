@@ -178,7 +178,7 @@ float TemperaturaMediana(struct nodo *lista, int cantidad){
 
 
 
-// Función para calcular la temperatura moda (la que más se repite)
+// Función para calcular la temperatura moda 
 float TemperaturaModa(struct nodo *lista) {
     struct nodo *p1, *p2;
     float moda = 0;           // Temperatura que más se repite
@@ -296,3 +296,4 @@ int main(){
 
     return 0; // Fin del programa
 }
+
